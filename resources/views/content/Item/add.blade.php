@@ -9,28 +9,28 @@
             <div class="card-header pb-1">
                 <div class="d-flex flex-row justify-content-between">
                     <div>
-                        <h5>Category</h5>
+                        <h5>Item</h5>
                     </div>
-                    <a href="{{route('category.index')}}" class="btn btn-sm bg-gradient-primary" type='button'>
+                    <a href="{{route('item.index')}}" class="btn btn-sm bg-gradient-primary" type='button'>
                         Kembali</a>
                 </div>
             </div>
-            <form action="{{route('category.store')}}" method="post">
+            <form action="{{route('item.store')}}" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <div class="text-dark">Nama Category</div>
-                                <input placeholder="Masukkan Nama Category" type="text" class='form-control'
-                                required  name='item_category_name' id='item_category_name'>
+                                <div class="text-dark">Nama Item</div>
+                                <input placeholder="Masukkan Nama Item" type="text" class='form-control'
+                                required  name='item_item_name' id='item_item_name'>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <div class="text-dark">Kode Category</div>
-                                <input placeholder="Masukkan Kode Category" type="text" class='form-control'
-                                required  name='item_category_code' id='item_category_code'>
+                                <div class="text-dark">Kode Item</div>
+                                <input placeholder="Masukkan Kode Item" type="text" class='form-control'
+                                required  name='item_item_code' id='item_item_code'>
                             </div>
                         </div>
                     </div>

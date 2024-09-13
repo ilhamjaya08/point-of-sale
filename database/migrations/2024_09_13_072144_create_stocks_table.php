@@ -11,19 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('company_id')->nullable();
-            $table->unsignedBigInteger('item_unit_id')->nullable();
-            $table->unsignedBigInteger('item_category_id')->nullable();
+            $table->unsignedBigInteger('company_id')->default(1)->nullable();
+            $table->unsignedBigInteger('warehouse_id')->default(1)->nullable();
+            $table->unsignedBigInteger('item_id')->default(1)->nullable();
+            $table->unsignedBigInteger('item_unit_id')->default(1)->nullable();
+            $table->unsignedBigInteger('item_category_id')->default(1)->nullable();
+            $table->integer('last_balance')->default(1)->nullable();
+            $table->foreign('item_id')->on('items')->references('id');
             $table->foreign('item_unit_id')->on('units')->references('id');
-            $table->foreign('item_category_id')->on('categories')->references(columns: 'id');
-            $table->string('item_name')->nullable();
-            $table->string('item_code')->nullable();
-            $table->string('item_barcode')->nullable();
-            $table->smallInteger('item_status')->nullable()->default(0);
-            $table->string('item_unit_price')->nullable();
-            $table->string('item_unit_cost')->nullable();
+            $table->foreign('item_category_id')->on('categories')->references('id');
             $table->unsignedBigInteger('created_id')->nullable();
             $table->unsignedBigInteger('updated_id')->nullable();
             $table->unsignedBigInteger('deleted_id')->nullable();
@@ -38,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('stocks');
     }
 };
