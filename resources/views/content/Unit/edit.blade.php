@@ -15,22 +15,23 @@
                         Kembali</a>
                 </div>
             </div>
-            <form action="{{route('unit.store')}}" method="post">
+            <form action="{{route('unit.update', $unit->id)}}" method="post">
                 @csrf
+                @method('PUT')
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
                                 <div class="text-dark">Nama Unit</div>
                                 <input placeholder="Masukkan Nama Unit" type="text" class='form-control'
-                                required  name='item_unit_name' id='item_unit_name'>
+                                    required name='item_unit_name' id='item_unit_name' value="{{ $unit->item_unit_name}}">
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="form-group">
-                                <div class="text-dark">Kode Unit</div>
+                            <div civ class="text-dark">Kode Unit</div>
+                                <div class="form-group">
                                 <input placeholder="Masukkan Kode Unit" type="text" class='form-control'
-                                required  name='item_unit_code' id='item_unit_code'>
+                                required name='item_unit_code' id='item_unit_code' value="{{ $unit->item_unit_code}}">
                             </div>
                         </div>
                     </div>

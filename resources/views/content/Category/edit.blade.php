@@ -9,28 +9,29 @@
             <div class="card-header pb-1">
                 <div class="d-flex flex-row justify-content-between">
                     <div>
-                        <h5>Unit</h5>
+                        <h5>Category</h5>
                     </div>
-                    <a href="{{route('unit.index')}}" class="btn btn-sm bg-gradient-primary" type='button'>
+                    <a href="{{route('category.index')}}" class="btn btn-sm bg-gradient-primary" type='button'>
                         Kembali</a>
                 </div>
             </div>
-            <form action="{{route('unit.store')}}" method="post">
+            <form action="{{route('category.update', $category->id)}}" method="post">
                 @csrf
+                @method('PUT')
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <div class="text-dark">Nama Unit</div>
-                                <input placeholder="Masukkan Nama Unit" type="text" class='form-control'
-                                required  name='item_unit_name' id='item_unit_name'>
+                                <div class="text-dark">Nama Category</div>
+                                <input placeholder="Masukkan Nama Category" type="text" class='form-control'
+                                    required name='item_category_name' id='item_category_name' value="{{ $category->item_category_name}}">
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="form-group">
-                                <div class="text-dark">Kode Unit</div>
-                                <input placeholder="Masukkan Kode Unit" type="text" class='form-control'
-                                required  name='item_unit_code' id='item_unit_code'>
+                            <div civ class="text-dark">Kode Category</div>
+                                <div class="form-group">
+                                <input placeholder="Masukkan Kode Category" type="text" class='form-control'
+                                required name='item_category_code' id='item_category_code' value="{{ $category->item_category_code}}">
                             </div>
                         </div>
                     </div>

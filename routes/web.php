@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,7 +71,11 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('dashboard');
 	})->name('sign-up');
 
-	Route::resource('unit', Unitcontroller::class);
+	// Route::delete('unit/{id}', [UnitController::class, 'destroy'])->name('unit.destroy');
+	// Route::put('/unit/{id}', [UnitController::class, 'update'])->name('unit.update');
+	Route::resource('unit', UnitController::class);
+	Route::resource('category', CategoryController::class);
+	Route::resource('item', ItemController::class);
 });
 
 
