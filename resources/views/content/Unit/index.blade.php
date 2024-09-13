@@ -3,7 +3,12 @@
 @section('content')
 
 <div>
-    <div class="alert"></div>
+    @if(session('msg'))
+    <div class="alert alert-{{ session('type')}}" role="alert">
+        {{ session('msg') }}
+    </div>
+    @endsession
+
     <div class="row">
         <div class="card mb-4 mx-4">
             <div class="card-header pb-1">
@@ -26,21 +31,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($units as $index => $unit)
                             <tr>
-                                <td>1</td>
-                                <td>Pcs</td>
-                                <td><a>Edit</a></td>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $unit->item_unit_name }}</td>
+                                <td><a href="{{ route('unit.edit', $unit->id) }}">Edit</a></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>BAG</td>
-                                <td><a>Edit</a></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>BTL</td>
-                                <td><a>Edit</a></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

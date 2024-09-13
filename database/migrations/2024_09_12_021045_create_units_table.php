@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->string('item_unit_name')->nullable();
+            $table->string('item_unit_code')->nullable();
+            $table->unsignedBigInteger('created_id')->nullable();
+            $table->unsignedBigInteger('updated_id')->nullable();
+            $table->unsignedBigInteger('deleted_id')->nullable();
+            $table->smallInteger('data_state')->default(0)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
