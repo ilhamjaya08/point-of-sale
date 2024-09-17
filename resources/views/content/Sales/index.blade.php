@@ -14,10 +14,10 @@
             <div class="card-header pb-1">
                 <div class="d-flex flex-row justify-content-between">
                     <div>
-                        <h5>Item</h5>
+                        <h5>Sales</h5>
                     </div>
-                    <a href="{{route('item.create')}}" class="btn btn-sm bg-gradient-primary" type='button'>Tambah
-                        Item</a>
+                    <a href="{{route('sales.create')}}" class="btn btn-sm bg-gradient-primary" type='button'>Tambah
+                        Sales</a>
                 </div>
             </div>
             <div class="card-body">
@@ -26,7 +26,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Item</th>
+                                <th>Nama Sales</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -37,14 +37,14 @@
                             @foreach($data as $value)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $value->item_name }}</td>
+                                <td>{{ $value->sales_name }}</td>
                                 <td>
-                                    <form action="{{ route('item.destroy', $value->id) }}" method="POST" style="display: inline;">
+                                    <form action="{{ route('sales.destroy', $value->id) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item?')">Hapus</button>
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this sales?')">Hapus</button>
                                     </form>
-                                    <a href="{{route('item.edit', $value->id)}}" class='btn btn-sm btn-warning'>Edit</a>
+                                    <a href="{{route('sales.edit', $value->id)}}" class='btn btn-sm btn-warning'>Edit</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -5,22 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\SalesItem;
 
-class Stock extends Model
+class Sales extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'item_name',
+        'sales_invoice_date',
+        'subtotal_amount',
+        'subtotal_item',
+        'paid_amount',
+        'total_amount',
+        'change_amount',
+        'payment_method',
         'company_id',
-        'warehouse_id',
-        'item_id',
-        'item_unit_id',
-        'item_category_id',
-        'last_balance',
         'created_id',
         'updated_id',
         'deleted_id',
-        'data_state',
     ];
+
+    public function items() {
+        return $this->hasMany(SalesItem::class);
+    }
 }

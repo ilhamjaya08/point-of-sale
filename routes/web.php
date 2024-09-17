@@ -76,6 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('unit', UnitController::class);
 	Route::resource('category', CategoryController::class);
 	Route::resource('item', ItemController::class);
+	Route::resource('sales', ItemController::class);
 });
 
 
